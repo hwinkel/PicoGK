@@ -136,6 +136,7 @@ namespace PicoGK
                                                             VoxHandle hVoxels);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Mesh_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(   LibHandle  hLib,
                                                 MshHandle hThis);
 
@@ -230,6 +231,7 @@ namespace PicoGK
         private static extern LatHandle _hCreate(LibHandle  hLib);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Lattice_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(   LibHandle   hLib,
                                                 LatHandle   hThis);
 
@@ -322,10 +324,12 @@ namespace PicoGK
                                                             float fRadius);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Voxels_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(   LibHandle   hLib,
                                                 VoxHandle   hThis);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Voxels_bIsEmpty")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsEmpty(  LibHandle   hLib,
                                                 VoxHandle   hThis);
 
@@ -404,6 +408,7 @@ namespace PicoGK
                                                     float fEndX);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Voxels_bIsEqual")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bIsEqual(   LibHandle   hLib,
                                                 VoxHandle   hThis,
                                                 VoxHandle   hOther);
@@ -413,6 +418,7 @@ namespace PicoGK
                                                         VoxHandle   hThis);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Voxels_bIsInside")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bIsInside(      LibHandle   hLib,
                                                     VoxHandle   hThis,
                                                     in Vector3 vecTestPoint);
@@ -424,12 +430,14 @@ namespace PicoGK
                                                         ref Vector3 vecSurfaceNormal);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Voxels_bClosestPointOnSurface")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private extern static bool _bClosestPointOnSurface( LibHandle   hLib,
                                                             VoxHandle   hThis,
                                                             in  Vector3 vecSearch,
                                                             ref Vector3 vecSurfacePoint);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Voxels_bRayCastToSurface")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private extern static bool _bRayCastToSurface(  LibHandle   hLib,
                                                         VoxHandle   hThis,
                                                         in  Vector3 vecSearch,
@@ -517,6 +525,7 @@ namespace PicoGK
                                                     in ColorFloat clr);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "PolyLine_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(   LibHandle  hLib,
                                                 PolyHandle hThis);
 
@@ -650,6 +659,7 @@ namespace PicoGK
                                                 WindowSizelCallback fnWindowSizeCallback);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(IntPtr hThis);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_Destroy")]
@@ -659,6 +669,7 @@ namespace PicoGK
         private static extern void _RequestUpdate(IntPtr hThis);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_bPoll")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bPoll(IntPtr hThis);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_RequestScreenShot")]
@@ -670,6 +681,7 @@ namespace PicoGK
                                                         bool bEnable);                                            
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_bLoadLightSetup")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bLoadLightSetup(    IntPtr  hThis,
                                                         byte [] abyDiffuseDdsBuffer,
                                                         int     nDiffuseSize,
@@ -984,6 +996,7 @@ namespace PicoGK
                                                             string strFile);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "VdbFile_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(   LibHandle  hLib, 
                                                 VdbHandle  hThis);
 
@@ -992,6 +1005,7 @@ namespace PicoGK
                                                 VdbHandle  hThis);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "VdbFile_bSaveToFile", CharSet = CharSet.Ansi)]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bSaveToFile(    LibHandle  hLib,
                                                     VdbHandle  hThis,
                                                     string strFileName);
@@ -1104,6 +1118,7 @@ namespace PicoGK
                                                         float fSdThreshold);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "ScalarField_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(   LibHandle           hLib,
                                                 ScalarFieldHandle   hThis);
 
@@ -1118,6 +1133,7 @@ namespace PicoGK
                                                 float               fValue);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "ScalarField_bGetValue")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bGetValue(  LibHandle           hLib, 
                                                 ScalarFieldHandle   hThis,
                                                 in  Vector3         vecPosition,
@@ -1206,6 +1222,7 @@ namespace PicoGK
                                                         float fSDThreshold);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "VectorField_bIsValid")]
+        [return: MarshalAs(UnmanagedType.I1)]
         internal static extern bool _bIsValid(   LibHandle  hLib,
                                                 VectorFieldHandle hThis);
 
@@ -1220,6 +1237,7 @@ namespace PicoGK
                                                 in Vector3 vecValue);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "VectorField_bGetValue")]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bGetValue(  LibHandle  hLib, 
                                                 VectorFieldHandle  hThis,
                                                  in  Vector3 vecPosition,
@@ -1300,6 +1318,7 @@ namespace PicoGK
                                                     int     nIndex);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Metadata_bGetNameAt", CharSet = CharSet.Ansi)]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bGetNameAt( LibHandle  hLib,
                                                 VdbMetaHandle  hThis, 
                                                 int     nIndex, 
@@ -1317,6 +1336,7 @@ namespace PicoGK
                                                     string  strFieldName);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Metadata_bGetStringAt", CharSet = CharSet.Ansi)]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bGetStringAt(   LibHandle  hLib,
                                                     VdbMetaHandle  hThis, 
                                                     string  strFieldName, 
@@ -1324,12 +1344,14 @@ namespace PicoGK
                                                     int nMaxStringLen);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Metadata_bGetFloatAt", CharSet = CharSet.Ansi)]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bGetFloatAt(    LibHandle  hLib,
                                                     VdbMetaHandle  hThis, 
                                                     string  strFieldName, 
                                                     ref float fValue);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Metadata_bGetVectorAt", CharSet = CharSet.Ansi)]
+        [return: MarshalAs(UnmanagedType.I1)]
         private static extern bool _bGetVectorAt(   LibHandle  hLib,
                                                     VdbMetaHandle  hThis, 
                                                     string  strFieldName, 
