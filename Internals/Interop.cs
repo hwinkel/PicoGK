@@ -252,7 +252,7 @@ namespace PicoGK
                                                 in Vector3  vecB,
                                                 float       fRadiusA,
                                                 float       fRadiusB,
-                                                bool        bRoundCap);
+                                                [MarshalAs(UnmanagedType.I1)] bool bRoundCap);
 
         // Dispose Pattern
 
@@ -602,7 +602,7 @@ namespace PicoGK
         // Define delegates for the callback functions
         [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
         public delegate void InfoCallback(  string  strMessage,
-                                            bool    bFatalError);
+                                            [MarshalAs(UnmanagedType.I1)] bool bFatalError);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void UpdateCallback(    IntPtr          hViewer,
@@ -621,10 +621,10 @@ namespace PicoGK
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MouseMovedCallback(    IntPtr      poViewer,
                                                     in Vector2  vecMousePos,
-                                                    bool        bShift,
-                                                    bool        bCtrl,
-                                                    bool        bAlt,
-                                                    bool        bCmd);
+                                                    [MarshalAs(UnmanagedType.I1)] bool bShift,
+                                                    [MarshalAs(UnmanagedType.I1)] bool bCtrl,
+                                                    [MarshalAs(UnmanagedType.I1)] bool bAlt,
+                                                    [MarshalAs(UnmanagedType.I1)] bool bCmd);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MouseButtonCallback(   IntPtr      hViewer,
@@ -637,10 +637,10 @@ namespace PicoGK
         public delegate void ScrollWheelCallback(   IntPtr      hViewer,
                                                     in Vector2  vecScrollWheel,
                                                     in Vector2  vecMousePos,
-                                                    bool        bShift,
-                                                    bool        bCtrl,
-                                                    bool        bAlt,
-                                                    bool        bCmd);
+                                                    [MarshalAs(UnmanagedType.I1)] bool bShift,
+                                                    [MarshalAs(UnmanagedType.I1)] bool bCtrl,
+                                                    [MarshalAs(UnmanagedType.I1)] bool bAlt,
+                                                    [MarshalAs(UnmanagedType.I1)] bool bCmd);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void WindowSizelCallback(   IntPtr hViewer,
@@ -678,7 +678,7 @@ namespace PicoGK
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_EnableExperimental")]
         private static extern void _EnableExperimental( IntPtr hThis,
-                                                        bool bEnable);                                            
+                                                        [MarshalAs(UnmanagedType.I1)] bool bEnable);                                            
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_bLoadLightSetup")]
         [return: MarshalAs(UnmanagedType.I1)]
@@ -748,7 +748,7 @@ namespace PicoGK
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_SetGroupVisible")]
         private static extern void _SetGroupVisible(    IntPtr  hThis,
                                                         int     nGroupID,
-                                                        bool    bVisible);
+                                                        [MarshalAs(UnmanagedType.I1)] bool bVisible);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_SetGroupMaterial")]
         private static extern void _SetGroupMaterial(   IntPtr          hThis,
@@ -882,9 +882,9 @@ namespace PicoGK
                                                         ColorFloat      clrDefault,
                                                         float           fAlpha,
                                                         in Matrix4x4    mat,
-                                                        bool            bFlipX,
-                                                        bool            bFlipY,
-                                                        bool            bDoubleSided);
+                                                        [MarshalAs(UnmanagedType.I1)] bool bFlipX,
+                                                        [MarshalAs(UnmanagedType.I1)] bool bFlipY,
+                                                        [MarshalAs(UnmanagedType.I1)] bool bDoubleSided);
 
             [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_Quad_Destroy")]
             private static extern void _Destroy(    IntPtr       hThis,
@@ -937,7 +937,7 @@ namespace PicoGK
         {
             [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_SideBar_hCreate")]
             extern internal static GuiSideBarHandle _hCreate(   IntPtr hViewer,
-                                                                bool bLeft,
+                                                                [MarshalAs(UnmanagedType.I1)] bool bLeft,
                                                                 int nMin,
                                                                 int nMax,
                                                                 int nDef,
