@@ -662,11 +662,11 @@ namespace PicoGK
         private static extern bool _bPoll(IntPtr hThis);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_RequestScreenShot")]
-        private static extern bool _RequestScreenShot(  IntPtr hThis,
+        private static extern void _RequestScreenShot(  IntPtr hThis,
                                                         string strScreenShotPath);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_EnableExperimental")]
-        private static extern bool _EnableExperimental( IntPtr hThis,
+        private static extern void _EnableExperimental( IntPtr hThis,
                                                         bool bEnable);                                            
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Viewer_bLoadLightSetup")]
@@ -1124,7 +1124,7 @@ namespace PicoGK
                                                 ref float           fValue);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "ScalarField_RemoveValue")]
-        private static extern bool _RemoveValue(    LibHandle           hLib,
+        private static extern void _RemoveValue(    LibHandle           hLib,
                                                     ScalarFieldHandle   hThis,
                                                     in  Vector3         vecPosition);
 
@@ -1226,7 +1226,7 @@ namespace PicoGK
                                                  ref Vector3 vecValue);
 
         [DllImport(Config.strPicoGKLib, CallingConvention = CallingConvention.Cdecl, EntryPoint = "VectorField_RemoveValue")]
-        private static extern bool _RemoveValue(    LibHandle  hLib,
+        private static extern void _RemoveValue(    LibHandle  hLib,
                                                     VectorFieldHandle  hThis,
                                                     in  Vector3 vecPosition);
 
